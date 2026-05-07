@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { LangSwitcher } from "./LangSwitcher";
 import { LanguagePopup } from "./LanguagePopup";
 import heroImg from "@/assets/hero-tutor.jpg";
@@ -12,7 +13,7 @@ const WHATSAPP = "https://wa.me/905555555555?text=";
 const T = {
   tr: {
     nav: { about: "Hakkımda", lessons: "Dersler", why: "Neden Biz", contact: "İletişim" },
-    brand: "Ms. Lina · English Tutor",
+    brand: "Ms. Burcu · English Tutor",
     location: "Eskişehir",
     hero: {
       tag: "Anadili İngilizce Eğitmen · Eskişehir",
@@ -25,7 +26,7 @@ const T = {
     about: {
       kicker: "Hakkımda",
       title: "Çocuğunuzun yanında bir anadili İngilizce arkadaş.",
-      body: "Merhaba! Ben Lina. Yıllardır Türkiye'de çocuklarla birebir İngilizce çalışıyorum. Derslerim ezbere değil; doğal konuşmaya, kendine güvene ve eğlenceli iletişime dayanır. Her çocuğun ritmini anlar, ona özel bir yol haritası hazırlarım.",
+      body: "Merhaba! Ben Burcu. Yıllardır Türkiye'de çocuklarla birebir İngilizce çalışıyorum. Derslerim ezbere değil; doğal konuşmaya, kendine güvene ve eğlenceli iletişime dayanır. Her çocuğun ritmini anlar, ona özel bir yol haritası hazırlarım.",
       points: ["Anadili İngilizce", "5+ yıl çocuk eğitmenliği deneyimi", "Cambridge sertifikalı"],
     },
     speaking: {
@@ -66,11 +67,11 @@ const T = {
       cta: "WhatsApp'tan Yaz",
       msg: "Merhaba, çocuğum için ücretsiz tanışma dersi rica ediyorum.",
     },
-    footer: "© " + new Date().getFullYear() + " Ms. Lina · Eskişehir İngilizce Özel Ders",
+    footer: "© " + new Date().getFullYear() + " Ms. Burcu · Eskişehir İngilizce Özel Ders",
   },
   en: {
     nav: { about: "About", lessons: "Lessons", why: "Why Us", contact: "Contact" },
-    brand: "Ms. Lina · English Tutor",
+    brand: "Ms. Burcu · English Tutor",
     location: "Eskişehir",
     hero: {
       tag: "Native English Tutor · Eskişehir",
@@ -83,7 +84,7 @@ const T = {
     about: {
       kicker: "About Me",
       title: "A native English friend by your child's side.",
-      body: "Hi, I'm Lina. I've spent years working one-on-one with children in Türkiye. My lessons are never about memorisation — they're about natural conversation, confidence and fun. I learn each child's pace and design a personal roadmap for them.",
+      body: "Hi, I'm Burcu. I've spent years working one-on-one with children in Türkiye. My lessons are never about memorisation — they're about natural conversation, confidence and fun. I learn each child's pace and design a personal roadmap for them.",
       points: ["Native English speaker", "5+ years teaching children", "Cambridge certified"],
     },
     speaking: {
@@ -124,13 +125,14 @@ const T = {
       cta: "Message on WhatsApp",
       msg: "Hi! I'd like to book a free trial lesson for my child.",
     },
-    footer: "© " + new Date().getFullYear() + " Ms. Lina · English Tutoring in Eskişehir",
+    footer: "© " + new Date().getFullYear() + " Ms. Burcu · English Tutoring in Eskişehir",
   },
 } as const;
 
 export function SitePage({ lang }: { lang: Lang }) {
   const t = T[lang];
   const wa = (msg: string) => `${WHATSAPP}${encodeURIComponent(msg)}`;
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -139,8 +141,8 @@ export function SitePage({ lang }: { lang: Lang }) {
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto max-w-6xl flex items-center justify-between px-5 py-4">
-          <a href="#top" className="font-display text-lg tracking-tight">
-            <span className="text-orange-soft">●</span> {t.brand}
+          <a href="#top" className="font-display text-sm sm:text-base md:text-lg tracking-tight leading-tight">
+            <span className="text-orange-soft">●</span> Ms. Burcu<span className="hidden sm:inline"> · English Tutor</span>
           </a>
           <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
             <a href="#about" className="hover:text-foreground transition">{t.nav.about}</a>
@@ -148,33 +150,53 @@ export function SitePage({ lang }: { lang: Lang }) {
             <a href="#why" className="hover:text-foreground transition">{t.nav.why}</a>
             <a href="#contact" className="hover:text-foreground transition">{t.nav.contact}</a>
           </nav>
-          <LangSwitcher current={lang} />
+          <div className="flex items-center gap-3">
+            <LangSwitcher current={lang} />
+            <button
+              className="md:hidden flex flex-col justify-center items-center gap-1.5 w-9 h-9 rounded-md hover:bg-secondary transition"
+              aria-label="Toggle menu"
+              onClick={() => setMenuOpen((v) => !v)}
+            >
+              <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            </button>
+          </div>
         </div>
+        {/* Mobile menu */}
+        {menuOpen && (
+          <nav className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md px-5 py-4 flex flex-col gap-4 text-sm text-muted-foreground">
+            <a href="#about" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
+            <a href="#lessons" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.lessons}</a>
+            <a href="#why" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.why}</a>
+            <a href="#contact" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.contact}</a>
+          </nav>
+        )}
       </header>
 
       {/* Hero */}
       <section id="top" className="bg-gradient-hero">
-        <div className="mx-auto max-w-6xl px-5 py-16 md:py-24 grid md:grid-cols-2 gap-12 items-center">
+        <div className="mx-auto max-w-6xl px-5 py-12 md:py-24 grid md:grid-cols-2 gap-10 md:gap-12 items-center">
           <div className="animate-fade-up">
-            <span className="inline-block text-xs uppercase tracking-[0.2em] text-orange-soft font-medium mb-5">
+            <span className="inline-block text-xs uppercase tracking-[0.2em] text-orange-soft font-medium mb-4 md:mb-5">
               {t.hero.tag}
             </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-5 md:mb-6">
               {t.hero.title}
             </h1>
-            <p className="text-lg text-muted-foreground mb-8 max-w-lg">{t.hero.sub}</p>
-            <div className="flex flex-wrap gap-3">
+            <p className="text-base sm:text-lg text-muted-foreground mb-7 md:mb-8 max-w-lg">{t.hero.sub}</p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <a
                 href={wa(t.hero.msg)}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3.5 font-medium shadow-warm hover:opacity-90 transition"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3.5 font-medium shadow-warm hover:opacity-90 transition"
               >
                 <WhatsAppIcon /> {t.hero.cta1}
               </a>
               <a
                 href="#lessons"
-                className="inline-flex items-center rounded-full border border-border bg-card px-6 py-3.5 font-medium hover:bg-secondary transition"
+                className="inline-flex items-center justify-center rounded-full border border-border bg-card px-6 py-3.5 font-medium hover:bg-secondary transition"
               >
                 {t.hero.cta2}
               </a>
@@ -194,12 +216,12 @@ export function SitePage({ lang }: { lang: Lang }) {
       </section>
 
       {/* About */}
-      <section id="about" className="py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-5 grid md:grid-cols-5 gap-12 items-center">
-          <div className="md:col-span-2">
+      <section id="about" className="py-14 md:py-28">
+        <div className="mx-auto max-w-6xl px-5 grid md:grid-cols-5 gap-8 md:gap-12 items-center">
+          <div className="md:col-span-2 max-w-xs mx-auto w-full md:max-w-none">
             <img
               src={aboutImg}
-              alt={lang === "tr" ? "İngilizce eğitmen Lina" : "English tutor Lina"}
+              alt={lang === "tr" ? "İngilizce eğitmen Burcu" : "English tutor Burcu"}
               loading="lazy"
               width={1024}
               height={1280}
@@ -208,7 +230,7 @@ export function SitePage({ lang }: { lang: Lang }) {
           </div>
           <div className="md:col-span-3">
             <Kicker>{t.about.kicker}</Kicker>
-            <h2 className="text-3xl md:text-4xl mb-5 max-w-xl">{t.about.title}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl mb-5 max-w-xl">{t.about.title}</h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-7">{t.about.body}</p>
             <ul className="space-y-3">
               {t.about.points.map((p) => (
@@ -223,7 +245,7 @@ export function SitePage({ lang }: { lang: Lang }) {
       </section>
 
       {/* Lessons */}
-      <section id="lessons" className="bg-cream py-20 md:py-28">
+      <section id="lessons" className="bg-cream py-14 md:py-28">
         <div className="mx-auto max-w-6xl px-5 space-y-20">
           <FeatureRow
             kicker={t.speaking.kicker}
@@ -255,11 +277,11 @@ export function SitePage({ lang }: { lang: Lang }) {
       </section>
 
       {/* Why */}
-      <section id="why" className="py-20 md:py-28">
+      <section id="why" className="py-14 md:py-28">
         <div className="mx-auto max-w-6xl px-5">
-          <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-14">
             <Kicker center>{t.why.kicker}</Kicker>
-            <h2 className="text-3xl md:text-4xl">{t.why.title}</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl">{t.why.title}</h2>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {t.why.items.map((it, i) => (
@@ -277,11 +299,11 @@ export function SitePage({ lang }: { lang: Lang }) {
       </section>
 
       {/* Contact */}
-      <section id="contact" className="bg-gradient-warm py-20 md:py-28">
+      <section id="contact" className="bg-gradient-warm py-14 md:py-28">
         <div className="mx-auto max-w-3xl px-5 text-center">
           <Kicker center>{t.contact.kicker}</Kicker>
-          <h2 className="text-3xl md:text-5xl mb-5">{t.contact.title}</h2>
-          <p className="text-muted-foreground text-lg mb-9 max-w-xl mx-auto">{t.contact.body}</p>
+          <h2 className="text-2xl sm:text-3xl md:text-5xl mb-4 md:mb-5">{t.contact.title}</h2>
+          <p className="text-muted-foreground text-base sm:text-lg mb-7 md:mb-9 max-w-xl mx-auto">{t.contact.body}</p>
           <a
             href={wa(t.contact.msg)}
             target="_blank"
@@ -323,11 +345,11 @@ function FeatureRow({
   kicker, title, body, img, alt, reverse,
 }: { kicker: string; title: string; body: string; img: string; alt: string; reverse?: boolean }) {
   return (
-    <div className={`grid md:grid-cols-2 gap-12 items-center ${reverse ? "md:[&>div:first-child]:order-2" : ""}`}>
+    <div className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>div:first-child]:order-2" : ""}`}>
       <div>
         <Kicker>{kicker}</Kicker>
-        <h2 className="text-3xl md:text-4xl mb-5">{title}</h2>
-        <p className="text-muted-foreground text-lg leading-relaxed">{body}</p>
+        <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-5">{title}</h2>
+        <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">{body}</p>
       </div>
       <img src={img} alt={alt} loading="lazy" width={1280} height={1024}
         className="rounded-[2rem] shadow-soft w-full object-cover aspect-[5/4]" />

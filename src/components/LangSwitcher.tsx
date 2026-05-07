@@ -6,20 +6,20 @@ export function LangSwitcher({ current }: { current: "tr" | "en" }) {
       <Link
         to="/"
         onClick={() => typeof window !== "undefined" && localStorage.setItem("lang-chosen", "tr")}
-        className={`px-3 py-1.5 rounded-full transition-colors flex items-center gap-1.5 ${
+        className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full transition-colors flex items-center gap-1 sm:gap-1.5 ${
           current === "tr" ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-secondary"
         }`}
       >
-        🇹🇷 <span className="font-medium">TR</span>
+        🇹🇷 <span className="font-medium hidden sm:inline">TR</span>
       </Link>
       <Link
         to="/en"
         onClick={() => typeof window !== "undefined" && localStorage.setItem("lang-chosen", "en")}
-        className={`px-3 py-1.5 rounded-full transition-colors flex items-center gap-1.5 ${
+        className={`px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-full transition-colors flex items-center gap-1 sm:gap-1.5 ${
           current === "en" ? "bg-primary text-primary-foreground" : "text-foreground hover:bg-secondary"
         }`}
       >
-        🇬🇧 <span className="font-medium">EN</span>
+        🇬🇧 <span className="font-medium hidden sm:inline">EN</span>
       </Link>
     </div>
   );
