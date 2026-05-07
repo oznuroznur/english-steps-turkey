@@ -1,26 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { SitePage } from "@/components/SitePage";
 
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "Eskişehir İngilizce Özel Ders | Anadili Eğitmen ile Birebir" },
+      { name: "description", content: "Eskişehir'de ilkokul ve ortaokul çocukları için anadili İngilizce eğitmen ile birebir konuşma odaklı özel dersler. Online ve yüz yüze." },
+      { property: "og:title", content: "Eskişehir İngilizce Özel Ders" },
+      { property: "og:description", content: "Anadili İngilizce eğitmen ile birebir konuşma odaklı dersler." },
+    ],
+  }),
+  component: () => <SitePage lang="tr" />,
 });
-
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
-}
