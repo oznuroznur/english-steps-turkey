@@ -7,6 +7,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 
@@ -73,17 +74,27 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Eskişehir İngilizce Özel Ders | Anadili İngilizce Eğitmen" },
-      { name: "description", content: "Eskişehir'de ilkokul ve ortaokul çocukları için anadili İngilizce eğitmen ile birebir konuşma odaklı özel İngilizce dersleri." },
+      {
+        name: "description",
+        content:
+          "Eskişehir'de ilkokul ve ortaokul çocukları için anadili İngilizce eğitmen ile birebir konuşma odaklı özel İngilizce dersleri.",
+      },
       { name: "author", content: "English Tutor Eskişehir" },
       { property: "og:title", content: "Eskişehir İngilizce Özel Ders" },
-      { property: "og:description", content: "Anadili İngilizce eğitmen ile birebir konuşma odaklı dersler." },
+      {
+        property: "og:description",
+        content: "Anadili İngilizce eğitmen ile birebir konuşma odaklı dersler.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap",
+      },
       { rel: "stylesheet", href: appCss },
     ],
   }),
@@ -101,6 +112,7 @@ function RootShell({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
+        <Analytics />
         <Scripts />
       </body>
     </html>

@@ -141,14 +141,26 @@ export function SitePage({ lang }: { lang: Lang }) {
       {/* Header */}
       <header className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur-md">
         <div className="mx-auto max-w-6xl flex items-center justify-between px-5 py-4">
-          <a href="#top" className="font-display text-sm sm:text-base md:text-lg tracking-tight leading-tight">
-            <span className="text-orange-soft">●</span> Ms. Burcu<span className="hidden sm:inline"> · English Tutor</span>
+          <a
+            href="#top"
+            className="font-display text-sm sm:text-base md:text-lg tracking-tight leading-tight"
+          >
+            <span className="text-orange-soft">●</span> Ms. Burcu
+            <span className="hidden sm:inline"> · English Tutor</span>
           </a>
           <nav className="hidden md:flex items-center gap-7 text-sm text-muted-foreground">
-            <a href="#about" className="hover:text-foreground transition">{t.nav.about}</a>
-            <a href="#lessons" className="hover:text-foreground transition">{t.nav.lessons}</a>
-            <a href="#why" className="hover:text-foreground transition">{t.nav.why}</a>
-            <a href="#contact" className="hover:text-foreground transition">{t.nav.contact}</a>
+            <a href="#about" className="hover:text-foreground transition">
+              {t.nav.about}
+            </a>
+            <a href="#lessons" className="hover:text-foreground transition">
+              {t.nav.lessons}
+            </a>
+            <a href="#why" className="hover:text-foreground transition">
+              {t.nav.why}
+            </a>
+            <a href="#contact" className="hover:text-foreground transition">
+              {t.nav.contact}
+            </a>
           </nav>
           <div className="flex items-center gap-3">
             <LangSwitcher current={lang} />
@@ -157,19 +169,49 @@ export function SitePage({ lang }: { lang: Lang }) {
               aria-label="Toggle menu"
               onClick={() => setMenuOpen((v) => !v)}
             >
-              <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`} />
-              <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-              <span className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+              <span
+                className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "translate-y-2 rotate-45" : ""}`}
+              />
+              <span
+                className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`}
+              />
+              <span
+                className={`block h-0.5 w-5 bg-foreground transition-all duration-300 ${menuOpen ? "-translate-y-2 -rotate-45" : ""}`}
+              />
             </button>
           </div>
         </div>
         {/* Mobile menu */}
         {menuOpen && (
           <nav className="md:hidden border-t border-border/60 bg-background/95 backdrop-blur-md px-5 py-4 flex flex-col gap-4 text-sm text-muted-foreground">
-            <a href="#about" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.about}</a>
-            <a href="#lessons" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.lessons}</a>
-            <a href="#why" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.why}</a>
-            <a href="#contact" className="hover:text-foreground transition" onClick={() => setMenuOpen(false)}>{t.nav.contact}</a>
+            <a
+              href="#about"
+              className="hover:text-foreground transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t.nav.about}
+            </a>
+            <a
+              href="#lessons"
+              className="hover:text-foreground transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t.nav.lessons}
+            </a>
+            <a
+              href="#why"
+              className="hover:text-foreground transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t.nav.why}
+            </a>
+            <a
+              href="#contact"
+              className="hover:text-foreground transition"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t.nav.contact}
+            </a>
           </nav>
         )}
       </header>
@@ -184,7 +226,9 @@ export function SitePage({ lang }: { lang: Lang }) {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-5 md:mb-6">
               {t.hero.title}
             </h1>
-            <p className="text-base sm:text-lg text-muted-foreground mb-7 md:mb-8 max-w-lg">{t.hero.sub}</p>
+            <p className="text-base sm:text-lg text-muted-foreground mb-7 md:mb-8 max-w-lg">
+              {t.hero.sub}
+            </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <a
                 href={wa(t.hero.msg)}
@@ -206,7 +250,11 @@ export function SitePage({ lang }: { lang: Lang }) {
             <div className="absolute -inset-4 bg-gradient-warm rounded-[2rem] blur-2xl opacity-60" />
             <img
               src={heroImg}
-              alt={lang === "tr" ? "Anadili İngilizce eğitmen ile birebir özel ders" : "Native English tutor with one student"}
+              alt={
+                lang === "tr"
+                  ? "Anadili İngilizce eğitmen ile birebir özel ders"
+                  : "Native English tutor with one student"
+              }
               width={1536}
               height={1024}
               className="relative rounded-[2rem] shadow-warm w-full object-cover aspect-[4/3]"
@@ -252,7 +300,11 @@ export function SitePage({ lang }: { lang: Lang }) {
             title={t.speaking.title}
             body={t.speaking.body}
             img={speakingImg}
-            alt={lang === "tr" ? "Konuşma odaklı birebir İngilizce ders" : "Speaking-focused one-on-one English lesson"}
+            alt={
+              lang === "tr"
+                ? "Konuşma odaklı birebir İngilizce ders"
+                : "Speaking-focused one-on-one English lesson"
+            }
           />
           <FeatureRow
             kicker={t.oneOnOne.kicker}
@@ -303,7 +355,9 @@ export function SitePage({ lang }: { lang: Lang }) {
         <div className="mx-auto max-w-3xl px-5 text-center">
           <Kicker center>{t.contact.kicker}</Kicker>
           <h2 className="text-2xl sm:text-3xl md:text-5xl mb-4 md:mb-5">{t.contact.title}</h2>
-          <p className="text-muted-foreground text-base sm:text-lg mb-7 md:mb-9 max-w-xl mx-auto">{t.contact.body}</p>
+          <p className="text-muted-foreground text-base sm:text-lg mb-7 md:mb-9 max-w-xl mx-auto">
+            {t.contact.body}
+          </p>
           <a
             href={wa(t.contact.msg)}
             target="_blank"
@@ -335,24 +389,46 @@ export function SitePage({ lang }: { lang: Lang }) {
 
 function Kicker({ children, center }: { children: React.ReactNode; center?: boolean }) {
   return (
-    <div className={`text-xs uppercase tracking-[0.2em] text-orange-soft font-medium mb-4 ${center ? "text-center" : ""}`}>
+    <div
+      className={`text-xs uppercase tracking-[0.2em] text-orange-soft font-medium mb-4 ${center ? "text-center" : ""}`}
+    >
       {children}
     </div>
   );
 }
 
 function FeatureRow({
-  kicker, title, body, img, alt, reverse,
-}: { kicker: string; title: string; body: string; img: string; alt: string; reverse?: boolean }) {
+  kicker,
+  title,
+  body,
+  img,
+  alt,
+  reverse,
+}: {
+  kicker: string;
+  title: string;
+  body: string;
+  img: string;
+  alt: string;
+  reverse?: boolean;
+}) {
   return (
-    <div className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>div:first-child]:order-2" : ""}`}>
+    <div
+      className={`grid md:grid-cols-2 gap-8 md:gap-12 items-center ${reverse ? "md:[&>div:first-child]:order-2" : ""}`}
+    >
       <div>
         <Kicker>{kicker}</Kicker>
         <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-5">{title}</h2>
         <p className="text-muted-foreground text-base sm:text-lg leading-relaxed">{body}</p>
       </div>
-      <img src={img} alt={alt} loading="lazy" width={1280} height={1024}
-        className="rounded-[2rem] shadow-soft w-full object-cover aspect-[5/4]" />
+      <img
+        src={img}
+        alt={alt}
+        loading="lazy"
+        width={1280}
+        height={1024}
+        className="rounded-[2rem] shadow-soft w-full object-cover aspect-[5/4]"
+      />
     </div>
   );
 }
@@ -360,8 +436,14 @@ function FeatureRow({
 function ModeCard({ title, desc, img }: { title: string; desc: string; img: string }) {
   return (
     <div className="group rounded-3xl bg-card border border-border overflow-hidden hover:shadow-warm transition">
-      <img src={img} alt={title} loading="lazy" width={1280} height={1024}
-        className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700" />
+      <img
+        src={img}
+        alt={title}
+        loading="lazy"
+        width={1280}
+        height={1024}
+        className="w-full aspect-[16/10] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+      />
       <div className="p-6">
         <h3 className="text-2xl mb-1">{title}</h3>
         <p className="text-muted-foreground">{desc}</p>
@@ -373,7 +455,7 @@ function ModeCard({ title, desc, img }: { title: string; desc: string; img: stri
 function WhatsAppIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
-      <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.554-5.338 11.89-11.893 11.89a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+      <path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.554-5.338 11.89-11.893 11.89a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.51 5.26l-.999 3.648 3.978-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.149-.173.198-.297.298-.495.099-.198.05-.372-.025-.521-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
     </svg>
   );
 }
