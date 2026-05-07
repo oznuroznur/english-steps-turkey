@@ -91,8 +91,8 @@
   --gradient-hero: linear-gradient(180deg, oklch(0.98 0.015 80) 0%, oklch(0.93 0.04 70) 100%);
   --shadow-warm: 0 20px 60px -20px oklch(0.72 0.14 55 / 0.25);
   --shadow-soft: 0 8px 30px -10px oklch(0.5 0.05 55 / 0.15);
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -159,7 +159,10 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
     font-weight: 500;
@@ -167,19 +170,42 @@
 }
 
 @layer utilities {
-  .bg-gradient-warm { background: var(--gradient-warm); }
-  .bg-gradient-hero { background: var(--gradient-hero); }
-  .shadow-warm { box-shadow: var(--shadow-warm); }
-  .shadow-soft { box-shadow: var(--shadow-soft); }
-  .font-display { font-family: var(--font-display); }
-  .text-orange-soft { color: var(--orange-soft); }
-  .bg-cream { background-color: var(--cream); }
-  .bg-beige-deep { background-color: var(--beige-deep); }
+  .bg-gradient-warm {
+    background: var(--gradient-warm);
+  }
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .shadow-warm {
+    box-shadow: var(--shadow-warm);
+  }
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .text-orange-soft {
+    color: var(--orange-soft);
+  }
+  .bg-cream {
+    background-color: var(--cream);
+  }
+  .bg-beige-deep {
+    background-color: var(--beige-deep);
+  }
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.animate-fade-up { animation: fade-up 0.8s ease-out both; }
-
+.animate-fade-up {
+  animation: fade-up 0.8s ease-out both;
+}
