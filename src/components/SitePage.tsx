@@ -274,7 +274,7 @@ export function SitePage({ lang }: { lang: Lang }) {
             </div>
           </div>
         </div>
-      </section>
+      </section> 
  
       {/* Why */}
       <section id="why" className="py-14 md:py-28">
