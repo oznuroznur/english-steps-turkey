@@ -21,7 +21,7 @@ const T = {
       sub: "İlkokul ve ortaokul öğrencileri için sıcak, güven veren ve konuşma odaklı bir öğrenme deneyimi.",
       cta1: "WhatsApp ile İletişime Geç",
       cta2: "Derslere Göz At",
-      msg: "Merhaba, çocuğum için İngilizce ders bilgisi almak istiyorum.",
+      msg: "Merhaba Burcu Hanım, çocuğum için speaking odaklı İngilizce dersleri hakkında bilgi almak istiyorum.",
     },
     about: {
       kicker: "Hakkımda",
