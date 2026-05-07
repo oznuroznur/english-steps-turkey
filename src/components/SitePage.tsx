@@ -275,7 +275,7 @@ export function SitePage({ lang }: { lang: Lang }) {
           </div>
         </div>
       </section>
-
+ 
       {/* Why */}
       <section id="why" className="py-14 md:py-28">
         <div className="mx-auto max-w-6xl px-5">
