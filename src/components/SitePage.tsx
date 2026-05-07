@@ -8,7 +8,7 @@ import onlineImg from "@/assets/online-lesson.jpg";
 
 type Lang = "tr" | "en";
 
-const WHATSAPP = "https://wa.me/905555555555?text=";
+const WHATSAPP = "https://wa.me/905050030612?text=";
 
 const T = {
   tr: {
