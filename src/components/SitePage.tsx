@@ -226,7 +226,7 @@ export function SitePage({ lang }: { lang: Lang }) {
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] mb-5 md:mb-6">
               {t.hero.title}
             </h1>
-            <p className="text-base sm:text-lg text-muted-foreground mb-7 md:mb-8 max-w-lg">
+            <p className="text-base sm:text-lg text-muted-foreground mb-5 max-w-lg">
               {t.hero.sub}
             </p>
                 <p className="font-display italic text-xl sm:text-2xl text-foreground mb-7 md:mb-8 max-w-lg border-l-2 border-orange-soft pl-4">
