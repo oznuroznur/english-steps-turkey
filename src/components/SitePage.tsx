@@ -229,6 +229,12 @@ export function SitePage({ lang }: { lang: Lang }) {
             <p className="text-base sm:text-lg text-muted-foreground mb-7 md:mb-8 max-w-lg">
               {t.hero.sub}
             </p>
+                <p className="font-display italic text-xl sm:text-2xl text-foreground mb-7 md:mb-8 max-w-lg border-l-2 border-orange-soft pl-4">
+              "If you don't use it, you lose it."
+              <span className="block text-xs not-italic uppercase tracking-[0.2em] text-orange-soft mt-2 font-sans">
+                — Ms. Burcu
+              </span>
+              </p>
             <div className="flex flex-col sm:flex-row flex-wrap gap-3">
               <a
                 href={wa(t.hero.msg)}
