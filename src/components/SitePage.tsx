@@ -231,6 +231,11 @@ export function SitePage({ lang }: { lang: Lang }) {
             </p>
             <p className="font-display italic text-xl sm:text-2xl text-foreground mb-7 md:mb-8 max-w-lg border-l-2 border-orange-soft pl-4">
               "If you don't use it, you lose it."
+              {lang === "tr" && (
+                <span className="block text-sm not-italic text-muted-foreground mt-2 font-sans">
+                  Kullanmazsan, kaybedersin.
+                </span>
+              )}
               <span className="block text-xs not-italic uppercase tracking-[0.2em] text-orange-soft mt-2 font-sans">
                 — Ms. Burcu
               </span>
